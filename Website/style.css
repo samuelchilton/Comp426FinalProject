@@ -1,10 +1,18 @@
-body {
-    background-color: black;
+/* body {
+    background-color:gray;
     margin: 0;
-}
+} */
 
 .page-title{
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     color: paleturquoise;
+    font-family: "American Typewriter", serif;
+    font-variant: small-caps;
+    font-stretch: expanded;
+}
+
+.attribution{
+    font-size: 10px;
+    text-align: center;
 }
