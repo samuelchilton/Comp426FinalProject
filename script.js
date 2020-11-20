@@ -38,6 +38,7 @@ async function testTrending(APIKEY){
         const result = await axios({
         method: 'GET',
         url: 'https://api.trakt.tv/movies/trending',
+        'Access-Control-Allow-Origin': '*',
         "Content-type": "application/json",
         "trakt-api-version": "2",
         "trakt-api-key": APIKEY,
