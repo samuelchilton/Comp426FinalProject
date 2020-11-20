@@ -13,13 +13,15 @@ $(function(){
  * @returns  {Object}  The body of the HTTP response.
  */
 export async function trendingMovies(APIKEY) {
+
+    console.log("ran this far at least");
     var request = new XMLHttpRequest();
     //request.open('GET', 'https://private-anon-08f2abf737-trakt.apiary-mock.com/movies/trending');
     request.open('GET', 'https://api.trakt.tv/movies/trending');
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('trakt-api-version', '2');
-    request.setRequestHeader('trakt-api-key', '[client_id]');
+    request.setRequestHeader('trakt-api-key', APIKEY);
     
     request.onreadystatechange = function () {
       if (this.readyState === 4) {
