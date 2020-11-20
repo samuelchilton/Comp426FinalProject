@@ -1,6 +1,6 @@
 $(function(){
     var APIKEY = "a974be00eb79053c00d4b6b6372ab763a0da9c17b1c75387cc19bc5d642b268d";
-    testTrending(APIKEY);
+    trendingMovies(APIKEY);
 });
 /**
  * This function should use axios to make a GET request to the following url:
