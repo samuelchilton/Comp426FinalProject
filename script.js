@@ -1,6 +1,6 @@
-
 $(function(){
-    trendingMovies();
+    var APIKEY = "a974be00eb79053c00d4b6b6372ab763a0da9c17b1c75387cc19bc5d642b268d";
+    trendingMovies(APIKEY);
 });
 /**
  * This function should use axios to make a GET request to the following url:
@@ -12,11 +12,31 @@ $(function(){
  *
  * @returns  {Object}  The body of the HTTP response.
  */
-export async function trendingMovies() {
-    const result = await axios({
-        method: 'GET',
-        url: 'https://comp426-1fa20.cs.unc.edu/a08/heroes',
-    });
-    console.log(result);
-    return result.data;
+export async function trendingMovies(APIKEY) {
+    var request = new XMLHttpRequest();
+    //request.open('GET', 'https://private-anon-08f2abf737-trakt.apiary-mock.com/movies/trending');
+    request.open('GET', 'https://api.trakt.tv/movies/trending');
+
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestHeader('trakt-api-version', '2');
+    request.setRequestHeader('trakt-api-key', '[client_id]');
+    
+    request.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        console.log('Status:', this.status);
+        console.log('Headers:', this.getAllResponseHeaders());
+        console.log('Body:', this.responseText);
+      }
+    };
+    
+    request.send();
+    // const result = await axios({
+    //     method: 'GET',
+    //     url: 'https://api.trakt.tv/movies/trending',
+    //     "Content-type": "application/json",
+    //     "trakt-api-version": "2",
+    //     "trakt-api-key": APIKEY,
+    // });
+    //console.log(result);
+    //return result.data;
 };
