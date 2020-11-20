@@ -35,13 +35,17 @@ export async function trendingMovies(APIKEY) {
 };
 
 async function testTrending(APIKEY){
-        const result = await axios({
+    console.log("test");
+    const result = await axios({
         method: 'GET',
-        url: 'https://api.trakt.tv/movies/trending',
-        'Access-Control-Allow-Origin': '*',
-        "Content-type": "application/json",
-        "trakt-api-version": "2",
-        "trakt-api-key": APIKEY,
+        //url: 'https://private-anon-08f2abf737-trakt.apiary-mock.com/movies/trending',
+        url: "https://api.trakt.tv/movies/trending",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-type": "application/json",
+            "trakt-api-version": "2",
+            "trakt-api-key": APIKEY,
+        },
     });
     console.log(result);
     return result.data;
