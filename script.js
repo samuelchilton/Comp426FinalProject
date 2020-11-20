@@ -1,6 +1,6 @@
 $(function(){
     var APIKEY = "a974be00eb79053c00d4b6b6372ab763a0da9c17b1c75387cc19bc5d642b268d";
-    trendingMovies(APIKEY);
+    testTrending(APIKEY);
 });
 /**
  * This function should use axios to make a GET request to the following url:
@@ -32,13 +32,16 @@ export async function trendingMovies(APIKEY) {
     };
     
     request.send();
-    // const result = await axios({
-    //     method: 'GET',
-    //     url: 'https://api.trakt.tv/movies/trending',
-    //     "Content-type": "application/json",
-    //     "trakt-api-version": "2",
-    //     "trakt-api-key": APIKEY,
-    // });
-    //console.log(result);
-    //return result.data;
 };
+
+async function testTrending(APIKEY){
+        const result = await axios({
+        method: 'GET',
+        url: 'https://api.trakt.tv/movies/trending',
+        "Content-type": "application/json",
+        "trakt-api-version": "2",
+        "trakt-api-key": APIKEY,
+    });
+    console.log(result);
+    return result.data;
+}
